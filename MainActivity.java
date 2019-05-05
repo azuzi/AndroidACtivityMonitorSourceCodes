@@ -104,7 +104,9 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
 
     }
-
+/* 
+When ever the array list contains 10 items, it should  do the calculatons. BUt this only happens once it doesn't loop back.
+*/
     @Override
     public void onSensorChanged(SensorEvent event) {
         int sensorType = event.sensor.getType();
@@ -116,7 +118,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         activity.setText("Please Wait......");
         dataY.add(currentValueY);
         dataZ.add(currentValueZ);
-
+// when array contains 10 data this block should work but it doesn't.
         if (dataY.size() == 10) {
 
 
@@ -140,9 +142,10 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
             dataZ.clear();
             dataY.clear();
+           
             try {
                 //set time in mili
-                sleep(30000);
+                sleep(5000);
                 //Toast.makeText(getBaseContext(), "Sleeping....", Toast.LENGTH_LONG).show();
                 //
 
@@ -156,7 +159,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
 
     }
-    //\Users\ZIZOU\AndroidStudioProjects\Acctivi_Classification\app\build\intermediates\split-apk\debug\slices\slice_1.apk.
 
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
